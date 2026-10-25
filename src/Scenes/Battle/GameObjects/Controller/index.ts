@@ -1,4 +1,5 @@
 import { GameObject } from '@eva/eva.js'
+import ControllerButton from './ControllerButton'
 
 export default function Controller() {
   const controller = new GameObject('controller', {
@@ -15,6 +16,13 @@ export default function Controller() {
       y: 1,
     },
   })
+
+  controller.addChild(ControllerButton(1))
+  controller.addChild(ControllerButton(2))
+  controller.addChild(ControllerButton(3))
+  controller.addChild(ControllerButton(4))
+  controller.addChild(ControllerButton(5))
+  controller.addChild(ControllerButton(6))
 
   return controller
 }

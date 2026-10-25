@@ -5,6 +5,7 @@ import { EventSystem } from '@eva/plugin-renderer-event'
 import { GraphicsSystem } from '@eva/plugin-renderer-graphics'
 import { ImgSystem } from '@eva/plugin-renderer-img'
 import { RenderSystem } from '@eva/plugin-renderer-render'
+import { SpriteSystem } from '@eva/plugin-renderer-sprite'
 import { SpriteAnimationSystem } from '@eva/plugin-renderer-sprite-animation'
 import { TextSystem } from '@eva/plugin-renderer-text'
 import { TransitionSystem } from '@eva/plugin-transition'
@@ -31,6 +32,7 @@ const game = new Game({
     new EventSystem(),
     new GraphicsSystem(),
     new TextSystem(),
+    new SpriteSystem(),
   ],
 })
 

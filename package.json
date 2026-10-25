@@ -9,7 +9,9 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview"
   },
   "devEngines": {
     "packageManager": {
@@ -36,10 +38,11 @@
   "devDependencies": {
     "@antfu/eslint-config": "^9.5.1",
     "@types/node": "^26.6.5",
-    "ellint": "^9.39.5",
+    "eslint": "^9.39.5",
     "eslint-plugin-format": "^2.0.1",
     "typescript": "^6.0.3",
     "vite": "^8.3.4",
+    "vite-plugin-static-copy": "^4.1.1",
     "vite-plugin-stdlib": "^0.0.1"
   }
 }
