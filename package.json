@@ -1,0 +1,45 @@
+{
+  "name": "creamed-eva",
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@12.14.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.9.1",
+      "onFail": "download"
+    }
+  },
+  "dependencies": {
+    "@eva/eva.js": "^1.2.0",
+    "@eva/plugin-renderer": "^1.2.0",
+    "@eva/plugin-renderer-event": "^1.2.0",
+    "@eva/plugin-renderer-graphics": "^1.2.0",
+    "@eva/plugin-renderer-img": "^1.2.0",
+    "@eva/plugin-renderer-render": "^1.2.0",
+    "@eva/plugin-renderer-sprite": "^1.2.0",
+    "@eva/plugin-renderer-sprite-animation": "^1.2.0",
+    "@eva/plugin-renderer-text": "^1.2.0",
+    "@eva/plugin-sound": "^1.2.4",
+    "@eva/plugin-stats": "^1.2.0",
+    "@eva/plugin-transition": "^1.2.0",
+    "@eva/renderer-adapter": "^1.2.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.5.1",
+    "@types/node": "^26.6.5",
+    "ellint": "^9.39.5",
+    "eslint-plugin-format": "^2.0.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.4",
+    "vite-plugin-stdlib": "^0.0.1"
+  }
+}
