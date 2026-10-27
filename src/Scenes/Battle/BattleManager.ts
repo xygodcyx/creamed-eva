@@ -4,11 +4,13 @@ import { EVENT_TYPE_ENUM } from 'src/Enums'
 import levels from 'src/Levels'
 import DataManager from 'src/Runtime/DataManager'
 import EventManager from 'src/Runtime/EventManager'
+import Player from './GameObjects/Player'
 import Tilemap from './GameObjects/Tilemap'
 import { TILE_HEIGHT, TILE_WIDTH } from './GameObjects/Tilemap/Tile'
 
 export default class BattleManager extends Component {
   tilemap: GameObject | null = null
+  player: GameObject | null = null
 
   start(): void {
     EventManager.Instance.on(EVENT_TYPE_ENUM.NEXT_LEVEL, this.nextLevel, this)
@@ -34,7 +36,14 @@ export default class BattleManager extends Component {
 
     this.tilemap = Tilemap()
     this.gameObject.addChild(this.tilemap)
+
     this.adaptTilemap()
+    this.generatePlayer()
+  }
+
+  generatePlayer() {
+    this.player = Player()
+    this.gameObject.addChild(this.player)
   }
 
   adaptTilemap() {

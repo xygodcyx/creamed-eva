@@ -39,3 +39,5 @@ const game = new Game({
 game.loadScene({
   scene: BattleScene(),
 })
+
+export default game

@@ -5,6 +5,8 @@ import BattleManager from './BattleManager'
 import BackgourndColor from './GameObjects/BackgroundColor'
 import Controller from './GameObjects/Controller'
 import Footer from './GameObjects/Footer'
+import Player from './GameObjects/Player'
+import PlayerManager from './GameObjects/Player/PlayerManager'
 
 export default function BattleScene() {
   const scene = new Scene('battel', {
@@ -33,16 +35,15 @@ export default function BattleScene() {
     },
   })
 
+  scene.addChild(stage)
+
   stage.addComponent(
     new Render({
       sortableChildren: true,
     }),
   )
 
-  const battleManager = stage.addComponent<BattleManager>(BattleManager)
-  battleManager.init()
-
-  scene.addChild(stage)
+  stage.addComponent<BattleManager>(BattleManager)
 
   return scene
 }
