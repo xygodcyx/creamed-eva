@@ -1,6 +1,27 @@
 import { GameObject } from '@eva/eva.js'
+import { CONTROLLER_TYPE_ENUM } from 'src/Enums'
 import ControllerButton from './ControllerButton'
 
+const CONTOLLER_EMIT_VALUES = [
+  {
+    value: CONTROLLER_TYPE_ENUM.TURN_LEFT,
+  },
+  {
+    value: CONTROLLER_TYPE_ENUM.LEFT,
+  },
+  {
+    value: CONTROLLER_TYPE_ENUM.TOP,
+  },
+  {
+    value: CONTROLLER_TYPE_ENUM.BOTTOM,
+  },
+  {
+    value: CONTROLLER_TYPE_ENUM.TURN_RIGHT,
+  },
+  {
+    value: CONTROLLER_TYPE_ENUM.RIGHT,
+  },
+]
 export default function Controller() {
   const controller = new GameObject('controller', {
     position: {
@@ -17,12 +38,7 @@ export default function Controller() {
     },
   })
 
-  controller.addChild(ControllerButton(1))
-  controller.addChild(ControllerButton(2))
-  controller.addChild(ControllerButton(3))
-  controller.addChild(ControllerButton(4))
-  controller.addChild(ControllerButton(5))
-  controller.addChild(ControllerButton(6))
+  CONTOLLER_EMIT_VALUES.forEach(({ value }, index) => controller.addChild(ControllerButton(index + 1, value)))
 
   return controller
 }

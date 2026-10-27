@@ -10,3 +10,17 @@ export enum TILE_TYPE_ENUM {
   WALL_RIGHT_TOP,
   CLIFF_RIGHT,
 }
+
+export enum EVENT_TYPE_ENUM {
+  NEXT_LEVEL,
+  MOVE,
+}
+
+export enum CONTROLLER_TYPE_ENUM {
+  TOP,
+  BOTTOM,
+  LEFT,
+  RIGHT,
+  TURN_LEFT,
+  TURN_RIGHT,
+}

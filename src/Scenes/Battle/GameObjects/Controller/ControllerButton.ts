@@ -2,6 +2,8 @@ import { GameObject } from '@eva/eva.js'
 import { Event } from '@eva/plugin-renderer-event'
 import { Sprite } from '@eva/plugin-renderer-sprite'
 import { Transition } from '@eva/plugin-transition'
+import { CONTROLLER_TYPE_ENUM, EVENT_TYPE_ENUM } from 'src/Enums'
+import EventManager from 'src/Runtime/EventManager'
 import { ScaleTransition } from 'src/Utils'
 
 export const BUTTON_WIDTH = 70
@@ -17,7 +19,7 @@ function getPosition(index: number): { x: number, y: number } {
   }
 }
 
-export default function ControllerButton(index: number) {
+export default function ControllerButton(index: number, direction: CONTROLLER_TYPE_ENUM) {
   const button = new GameObject('button', {
     size: {
       width: BUTTON_WIDTH,
@@ -54,6 +56,10 @@ export default function ControllerButton(index: number) {
 
   event.on('touchend', () => {
     animation.play('restore')
+    if (direction === CONTROLLER_TYPE_ENUM.RIGHT) {
+      EventManager.Instance.emit(EVENT_TYPE_ENUM.NEXT_LEVEL)
+    }
+    EventManager.Instance.emit(EVENT_TYPE_ENUM.MOVE, direction)
   })
 
   event.on('touchendoutside', () => {

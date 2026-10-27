@@ -1,8 +1,16 @@
+import type { PluginOption } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { stdlib } from 'vite-plugin-stdlib'
 
+const fullReloadPlugin: PluginOption = {
+  name: 'full-reload-always',
+  handleHotUpdate({ server }) {
+    server.ws.send({ type: 'full-reload' })
+    return [] // 返回空数组，阻止 HMR 继续处理
+  },
+}
 // https://vite.dev/config/
 export default defineConfig({
   resolve: {
@@ -12,6 +20,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    fullReloadPlugin,
     viteStaticCopy({
       targets: [
         {
